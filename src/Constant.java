@@ -1,4 +1,4 @@
-public class Constant<E> implements Expression {
+public abstract class Constant<E> extends Expression {
 
     private E value;
 
@@ -10,5 +10,4 @@ public class Constant<E> implements Expression {
     public E evaluate() {
         return null;
     }
-
 }

@@ -1,4 +1,4 @@
-public class Quantifier<E> implements Expression{
+public abstract class Quantifier<E> extends Expression{
 
     public void addExpression(Expression<E> expr){
 

@@ -1,4 +1,4 @@
-public class Variable<E> implements Expression {
+public abstract class Variable<E> extends Expression {
 
     private E value;
 
