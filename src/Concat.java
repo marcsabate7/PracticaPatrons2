@@ -1,10 +1,10 @@
 public class Concat extends Quantifier {
 
     public String empty() {
-        return null;
+        return "";
     }
 
     public String combine(String op1, String op2) {
-        return null;
+        return op1.concat(op2);
     }
 }

@@ -1,4 +1,5 @@
-public abstract class Constant<E> extends Expression {
+
+public abstract class Constant<E> extends Expression{
 
     private E value;
 
