@@ -8,6 +8,7 @@ public abstract class Quantifier<E> extends Expression implements Observer {
     public void addExpression(Expression<E> expr){
         // Haurem de mirar que no es repeteixin --> tema d'arbre
         subExpressions.add(expr);
+
     }
 
     public void removeExpression(Expression<E> expr){

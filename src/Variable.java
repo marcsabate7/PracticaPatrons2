@@ -1,4 +1,4 @@
-public abstract class Variable<E> extends Expression {
+public class Variable<E> extends Expression {
 
     private E value;
 
@@ -7,6 +7,7 @@ public abstract class Variable<E> extends Expression {
     }
 
     public void setValue(E newValue) {
+        // ABANS DE ENVIAR LA NOTIFICACIÓ HAURIEM DE COMPROVAR QUE EL VALOR DE LA EXPRESSIÓ SHA MODIFICAT
         this.value = newValue;
         setChanged();
         notifyObservers();

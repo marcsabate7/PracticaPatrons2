@@ -1,4 +1,4 @@
-public class Product extends Quantifier{
+public abstract  class Product extends Quantifier{
     public Integer empty() {
         return 1;
     }
