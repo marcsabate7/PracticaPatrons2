@@ -8,10 +8,12 @@ public abstract class Variable<E> extends Expression {
 
     public void setValue(E newValue) {
         this.value = newValue;
+        setChanged();
+        notifyObservers();
     }
 
     @Override
     public Object evaluate() {
-        return null;
+        return this.value;
     }
 }

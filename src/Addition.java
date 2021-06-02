@@ -1,4 +1,7 @@
-public class Addition extends Quantifier {
+import java.util.Observable;
+
+public class Addition extends Quantifier<Integer> {
+
     public Integer empty() {
         return 0;
     }
@@ -7,4 +10,8 @@ public class Addition extends Quantifier {
         return op1 + op2;
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 }

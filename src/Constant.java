@@ -8,7 +8,8 @@ public abstract class Constant<E> extends Expression{
     }
 
     @Override
-    public E evaluate() {
-        return null;
+    public Object evaluate() {
+        return this.value;
     }
+
 }
