@@ -1,9 +1,13 @@
 public class Constant<E> extends Expression{
 
-    private E value;
+    public E value;
 
     public Constant(E value) {
         this.value = value;
+    }
+
+    public Constant() {
+        this.value = null;
     }
 
     @Override

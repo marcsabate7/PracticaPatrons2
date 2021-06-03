@@ -1,9 +1,13 @@
 public class Variable<E> extends Expression {
 
-    private E value;
+    public E value;
 
     public Variable(E value) {
         this.value = value;
+    }
+
+    public Variable() {
+        this.value = null;
     }
 
     public void setValue(E newValue) {

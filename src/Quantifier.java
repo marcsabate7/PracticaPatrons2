@@ -8,19 +8,26 @@ public abstract class Quantifier<E> extends Expression implements Observer {
 
     public void addExpression(Expression<E> expr){
         // Haurem de mirar que no es repeteixin --> tema d'arbre no ho se segur si es necessari
-        subExpressions.add(expr);
+        this.subExpressions.add(expr);
 
     }
 
     public void removeExpression(Expression<E> expr){
-        subExpressions.remove(expr);
+        this.subExpressions.remove(expr);
     }
 
     @Override
     public Object evaluate() {
-        for(int i = 0; i <subExpressions.size();i++){
-
+        if (subExpressions.size() == 1){
+            return subExpressions.get(0);
         }
+        else{
+            for(int i = 0; i<subExpressions.size();i++){
+
+            }
+        }
+
+
         // Hem de evaluar la nova expressió i si el resultat es mes gran que l'anterior notificar
         return null;
     }
