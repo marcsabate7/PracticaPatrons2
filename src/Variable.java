@@ -7,7 +7,7 @@ public class Variable<E> extends Expression {
     }
 
     public void setValue(E newValue) {
-        // ABANS DE ENVIAR LA NOTIFICACIÓ HAURIEM DE COMPROVAR QUE EL VALOR DE LA EXPRESSIÓ SHA MODIFICAT
+        // Hem de informar al quantifier que sha modificat la variable
         this.value = newValue;
         setChanged();
         notifyObservers();
