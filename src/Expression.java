@@ -3,12 +3,12 @@ import java.util.Observer;
 
 public abstract class Expression<E> extends Observable {
 
-     public Expression(Constant<E> cons){
+    private E value;
 
-     }
+    abstract public E evaluate();
 
-     public Expression(Variable<E> var){
+    public E getValue() {
+        return this.value;
+    }
 
-     }
-     public abstract E evaluate();
 }

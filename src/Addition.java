@@ -6,7 +6,7 @@ public class Addition extends Quantifier<Integer> {
         return 0;
     }
 
-    public Integer combine(Integer op1, Integer op2) {
+    public Integer combine(Object op1, Object op2) {
         return op1 + op2;
     }
 

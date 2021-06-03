@@ -6,11 +6,9 @@ public class Concat extends Quantifier<String>{
         return "";
     }
 
-
-    public String combine(String op1, String op2) {
+    public String combine(Object op1, Object op2) {
         return op1.concat(op2);
     }
-
 
     @Override
     public void update(Observable o, Object arg) {

@@ -1,4 +1,4 @@
-public class Constant<E> extends Expression{
+public class Constant<E> extends Expression {
 
     public E value;
 
