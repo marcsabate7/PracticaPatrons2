@@ -25,6 +25,7 @@ public abstract class Quantifier<E> extends Expression implements Observer {
                     pos = false;
                 } else if (pos) {
                     result = combine(this.subExpressions.get(i).getValue(), this.subExpressions.get(i + 1).getValue());
+                    total = combine(total, expresio.evaluate)
                 }
             }
             return result;
@@ -34,11 +35,14 @@ public abstract class Quantifier<E> extends Expression implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        E res1 = evaluate();
-
-        E res2 = evaluate();
-        if(res1 != res2){
-            ValueChanged valCh = new ValueChanged();
+        ValueChanged value_returned = (ValueChanged) arg;
+        E old_evaluate = evaluate();
+        this.subExpressions.remove(value_returned.getOldValue());
+        this.subExpressions.add(new Variable(value_returned.getNewValue()));
+        E new_evaluate = evaluate();
+        if(!new_evaluate.equals(old_evaluate)){
+            setChanged();
+            notifyObservers();
         }
     }
 
