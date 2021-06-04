@@ -9,23 +9,29 @@ public abstract class Quantifier<E> extends Expression implements Observer {
 
     public void addExpression(Expression<E> expr) {
         this.subExpressions.add(expr);
+        if (expr instanceof Variable){
+            ((Variable<E>) expr).addObserver(this);
+        }
+        else if (expr instanceof Constant){
+            ((Constant<E>) expr).addObserver(this);
+        }
     }
 
     public void removeExpression(Expression<E> expr) {
         this.subExpressions.remove(expr);
+        expr.deleteObserver(this);
     }
 
     @Override
     public E evaluate() {
         boolean pos = true;
-        E result = null;
+        E result = empty();
         if (!subExpressions.isEmpty()) {
             for (int i = 0; i < this.subExpressions.size(); i++) {
                 if (i + 1 == this.subExpressions.size()) {
                     pos = false;
                 } else if (pos) {
-                    result = combine(this.subExpressions.get(i).getValue(), this.subExpressions.get(i + 1).getValue());
-                    total = combine(total, expresio.evaluate)
+                    result = combine(result, this.subExpressions.get(i).evaluate());
                 }
             }
             return result;
@@ -33,12 +39,14 @@ public abstract class Quantifier<E> extends Expression implements Observer {
         return empty();
     }
 
+
     @Override
     public void update(Observable o, Object arg) {
         ValueChanged value_returned = (ValueChanged) arg;
         E old_evaluate = evaluate();
-        this.subExpressions.remove(value_returned.getOldValue());
-        this.subExpressions.add(new Variable(value_returned.getNewValue()));
+        removeExpression();
+
+        addExpression(new Variable<>(value_returned.getNewValue()));
         E new_evaluate = evaluate();
         if(!new_evaluate.equals(old_evaluate)){
             setChanged();

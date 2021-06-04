@@ -1,3 +1,5 @@
+import java.util.Observer;
+
 public class Constant<E> extends Expression {
 
     public E value;
@@ -8,6 +10,11 @@ public class Constant<E> extends Expression {
 
     public Constant() {
         this.value = null;
+    }
+
+    @Override
+    public synchronized void addObserver(Observer o) {
+        super.addObserver(o);
     }
 
     @Override

@@ -1,6 +1,6 @@
 import java.util.Observable;
 
-public class Max extends Quantifier<Integer> {
+public class Max extends Quantifier<Integer>{
 
     public Integer empty() {
         return Integer.MIN_VALUE;
